@@ -79,8 +79,8 @@ public class Movement : MonoBehaviour
     {
         var move = player.FindAction("Move");
         var jump = player.FindAction("Jump");
-        //var dash = player.FindAction("Dash");
-        //var grab = player.FindAction("Grab");
+        var dash = player.FindAction("Dash");
+        var grab = player.FindAction("Grab");
 
 
         Vector2 dir = move.ReadValue<Vector2>();
@@ -93,23 +93,22 @@ public class Movement : MonoBehaviour
         float yRaw = normDir.y;
 
         Walk(dir);
-        // anim.SetHorizontalMovement(x, y, rb.velocity.y);
+            // anim.SetHorizontalMovement(x, y, rb.velocity.y);
 
-        //if (coll.onWall && grab.IsPressed() && canMove)
-        //{
-        //    // if(side != coll.wallSide)
-        //    //     anim.Flip(side*-1);
-        //    wallGrab = true;
-        //    wallSlide = false;
-        //}
+        if (coll.onWall && grab.IsPressed() && canMove)
+        {
+            // if(side != coll.wallSide)
+            //     anim.Flip(side*-1);
+            wallGrab = true;
+            wallSlide = false;
+        }
+        else
+        {
+            wallGrab = false;
+            wallSlide = false;
+        }
 
-        //if (grab.WasReleasedThisFrame() || !coll.onWall || !canMove)
-        //{
-        //    wallGrab = false;
-        //    wallSlide = false;
-        //}
-
-        if (coll.onGround && !isDashing)
+            if (coll.onGround && !isDashing)
         {
             wallJumped = false;
             GetComponent<BetterJumping>().enabled = true;
@@ -130,17 +129,17 @@ public class Movement : MonoBehaviour
             rb.gravityScale = 3;
         }
 
-        // if(coll.onWall && !coll.onGround)
-        // {
-        //     if (x != 0 && !wallGrab)
-        //     {
-        //         wallSlide = true;
-        //         WallSlide();
-        //     }
-        // }
+        if (coll.onWall && !coll.onGround && !wallJumped)
+        {
+            if (x != 0 && !wallGrab)
+            {
+                wallSlide = true;
+                WallSlide();
+            }
+        }
 
-        // if (!coll.onWall || coll.onGround)
-        //     wallSlide = false;
+        if (!coll.onWall || coll.onGround)
+            wallSlide = false;
 
         if (jump.WasPressedThisFrame())
         {
@@ -152,11 +151,11 @@ public class Movement : MonoBehaviour
                 WallJump();
         }
 
-        //if (dash.WasPressedThisFrame() && !hasDashed)
-        //{
-        //    if (xRaw != 0 || yRaw != 0)
-        //        Dash(xRaw, yRaw);
-        //}
+        if (dash.WasPressedThisFrame() && !hasDashed)
+        {
+            if (xRaw != 0 || yRaw != 0)
+                Dash(xRaw, yRaw);
+        }
 
         if (coll.onGround && !groundTouch)
         {
@@ -251,6 +250,8 @@ public class Movement : MonoBehaviour
             // anim.Flip(side);
         }
 
+        Debug.Log("Dupa");
+
         StopCoroutine(DisableMovement(0));
         StartCoroutine(DisableMovement(.1f));
 
@@ -304,6 +305,8 @@ public class Movement : MonoBehaviour
 
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.velocity += dir * jumpForce;
+
+            Debug.Log(rb.velocity);
 
         // particle.Play();
     }
