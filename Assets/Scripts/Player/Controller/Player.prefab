@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3183327781401306797}
   - component: {fileID: 3183327781401306802}
   - component: {fileID: 3183327781401306795}
+  - component: {fileID: 7331135746099388518}
+  - component: {fileID: 2508959589317117358}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -105,7 +107,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -125,7 +127,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.16}
-  m_Size: {x: 0.81, y: 2.32}
+  m_Size: {x: 0.81, y: 2.14}
   m_Direction: 0
 --- !u!114 &3183327781401306796
 MonoBehaviour:
@@ -147,7 +149,7 @@ MonoBehaviour:
   onRightWall: 0
   onLeftWall: 0
   wallSide: 0
-  collisionRadius: 0.15
+  collisionRadius: 0.18
   bottomOffset: {x: 0.01, y: -0.46}
   rightOffset: {x: 0.36, y: -0.05}
   leftOffset: {x: -0.36, y: -0.05}
@@ -164,16 +166,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  speed: 8
-  jumpForce: 12
-  slideSpeed: 2
   wallJumpLerp: 10
-  dashSpeed: 35
   canMove: 1
-  wallGrab: 0
-  wallJumped: 0
-  wallSlide: 0
+  isWallGrabing: 0
+  isJumping: 0
+  isWallJumping: 0
+  isWallSliding: 0
   isDashing: 0
+  isGroundTouching: 0
   side: 1
   dashParticle: {fileID: 0}
   jumpParticle: {fileID: 0}
@@ -275,8 +275,48 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 651ba097-d75d-45a1-8d90-d6353df91aac
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0f799e13-d3ed-430a-93ad-cd4e670702ca
+    m_ActionName: Player/Dash[/Keyboard/leftCtrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e3fb3267-d0d2-4d72-89ae-d90d8abaef10
+    m_ActionName: Player/Grab[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7331135746099388518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183327781401306803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf243e48d9974454b7193539887f192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2508959589317117358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183327781401306803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4c43dc7fdd44326bd2dba51089fec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  jumpForce: 15
+  slideSpeed: 5
+  dashSpeed: 25
+  jumpLimit: 1
+  dashLimit: 1
+  dashed: 0
+  jumped: 0
