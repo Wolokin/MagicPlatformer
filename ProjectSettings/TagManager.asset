@@ -9,12 +9,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Players
   - Water
   - UI
   - GroundLayer
-  - 
-  - 
+  - Pickups
+  - PickupsBodies
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: Terrain
     uniqueID: 3793843065
+    locked: 0
+  - name: Pickups
+    uniqueID: 3584752675
     locked: 0
