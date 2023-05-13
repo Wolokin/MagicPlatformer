@@ -37,6 +37,8 @@ public class PositionUI : MonoBehaviour
         }
         rt.offsetMin = new Vector2(left, bottom);
         rt.offsetMax = new Vector2(-right, -top);
+
+        transform.parent.parent.name = "Player" + playerCount;
     }
 
     // Update is called once per frame

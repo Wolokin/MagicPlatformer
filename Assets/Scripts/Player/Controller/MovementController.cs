@@ -9,6 +9,8 @@ namespace Controller
         private Input input;
         private Movement movement;
         private PlayerCollision coll;
+        private Vector2 lastInput = Vector2.left;
+        private SpellSource spellSource;
 
         [Space]
         [Header("Stats")]
@@ -34,6 +36,7 @@ namespace Controller
             input = GetComponent<Input>();
             movement = GetComponent<Movement>();
             coll = GetComponent<PlayerCollision>();
+            spellSource = GetComponentInChildren<SpellSource>();
         }
 
 
@@ -41,6 +44,12 @@ namespace Controller
         {
             Vector2 dir = input.move.ReadValue<Vector2>();
             var dirRaw = input.moveRaw;
+            //print(dir);
+
+            if(dir != Vector2.zero)
+            {
+                lastInput = dir;
+            }
 
             movement.Walk(dir, speed);
             // anim.SetHorizontalMovement(x, y, rb.velocity.y);
@@ -87,6 +96,11 @@ namespace Controller
             {
                 if (dirRaw.x != 0 || dirRaw.y != 0)
                     Dash(input.moveRaw);
+            }
+
+            if (input.cast.WasPressedThisFrame())
+            {
+                spellSource.CastSpell(lastInput);
             }
 
             if (coll.onGround)

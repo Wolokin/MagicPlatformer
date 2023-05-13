@@ -27,7 +27,6 @@ public class Bar : MonoBehaviour
         {
             currSliderValue += (curr > currSliderValue) ? 1 : -1;
             nextUpdate = Time.time + (float)timeToFill / max;
-            print(nextUpdate);
         }
         barSlider.value = currSliderValue;
     }
