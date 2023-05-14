@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3109017896566526191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8456413600388361854}
+  - component: {fileID: 1464119257455741880}
+  m_Layer: 3
+  m_Name: SpellSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8456413600388361854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3109017896566526191}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.028, y: -0.283, z: 0}
+  m_LocalScale: {x: 1.16, y: 0.4316, z: 0.4316}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3183327781401306792}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1464119257455741880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3109017896566526191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dbf60e0f94541b4a800be0ed342b54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPrefab: {fileID: 8951701350901610744, guid: 4dafacdaff5a83d46bb1ab93d42e9938,
+    type: 3}
+  spellSpawnDistance: {x: 0.1, y: 0.1}
 --- !u!1 &3183327781401306803
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,7 +83,8 @@ Transform:
   m_LocalPosition: {x: 1.8987, y: -0.2075, z: 0}
   m_LocalScale: {x: 1.16, y: 0.4316, z: 0.4316}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8456413600388361854}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -173,7 +221,6 @@ MonoBehaviour:
   isWallJumping: 0
   isWallSliding: 0
   isDashing: 0
-  isGroundTouching: 0
   side: 1
   dashParticle: {fileID: 0}
   jumpParticle: {fileID: 0}
@@ -283,6 +330,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e3fb3267-d0d2-4d72-89ae-d90d8abaef10
     m_ActionName: Player/Grab[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f2b4960f-dc27-4dbd-a130-767d18df976d
+    m_ActionName: Player/ResetPosition[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 79d07272-139b-4f6f-81d3-d16377af0e28
+    m_ActionName: Player/Cast[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player

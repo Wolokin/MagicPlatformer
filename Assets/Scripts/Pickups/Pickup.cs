@@ -15,7 +15,8 @@ abstract public class Pickup : MonoBehaviour
     public void PickupAndDespawn(Collider2D other)
     {
         OnPickup(other);
-        Destroy(this.gameObject);
+        transform.parent.gameObject.SetActive(false);
+        Destroy(transform.parent.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

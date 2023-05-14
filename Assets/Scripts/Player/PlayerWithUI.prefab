@@ -263,6 +263,7 @@ MonoBehaviour:
   curr: 25
   currSliderValue: 0
   timeToFill: 1
+  regenRate: 6
 --- !u!1 &7402463364849331721 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2792775033500527296, guid: 6f4f1ecb095f05947b3f232dce41ca08,
@@ -312,6 +313,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7402463365067354966}
     m_Modifications:
+    - target: {fileID: 1464119257455741880, guid: 7f7b1638fa0084872940657b29db4b54,
+        type: 3}
+      propertyPath: spellSpawnDistance.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464119257455741880, guid: 7f7b1638fa0084872940657b29db4b54,
+        type: 3}
+      propertyPath: spellSpawnDistance.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3183327781401306792, guid: 7f7b1638fa0084872940657b29db4b54,
         type: 3}
       propertyPath: m_RootOrder
@@ -370,7 +381,7 @@ PrefabInstance:
     - target: {fileID: 3183327781401306795, guid: 7f7b1638fa0084872940657b29db4b54,
         type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3183327781401306795, guid: 7f7b1638fa0084872940657b29db4b54,
         type: 3}
@@ -392,6 +403,11 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[15].m_ActionName
       value: Player/Grab[/Keyboard/leftShift]
       objectReference: {fileID: 0}
+    - target: {fileID: 3183327781401306795, guid: 7f7b1638fa0084872940657b29db4b54,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_ActionName
+      value: Player/Cast[/Keyboard/e,/XInputControllerWindows/buttonEast]
+      objectReference: {fileID: 0}
     - target: {fileID: 3183327781401306803, guid: 7f7b1638fa0084872940657b29db4b54,
         type: 3}
       propertyPath: m_Name
@@ -406,6 +422,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456413600388361854, guid: 7f7b1638fa0084872940657b29db4b54,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f7b1638fa0084872940657b29db4b54, type: 3}

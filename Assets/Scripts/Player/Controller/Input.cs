@@ -17,6 +17,7 @@ namespace Controller
         public InputAction jump { get; private set; }
         public InputAction dash { get; private set; }
         public InputAction grab { get; private set; }
+        public InputAction cast { get; private set; }
         public InputAction resetPosition { get; private set; }
         private InputAction _look;
 
@@ -55,6 +56,7 @@ namespace Controller
             jump = inputs.FindAction("Jump");
             dash = inputs.FindAction("Dash");
             grab = inputs.FindAction("Grab");
+            cast = inputs.FindAction("Cast");
             resetPosition = inputs.FindAction("ResetPosition");
             _look = inputs.FindAction("Look");
         }

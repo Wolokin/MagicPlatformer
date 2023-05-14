@@ -24,9 +24,6 @@ public class SpawnPickups : MonoBehaviour
         {
             Vector2 spawnPoint = new Vector2(Random.Range(xMin, xMax), Random.Range(yMin, yMax));
             Collider2D collisionCheck = Physics2D.OverlapCircle(spawnPoint, collisionRadius, LayerMask.GetMask(new string[]{ "GroundLayer"}));
-            print(spawnPoint.x + " " + spawnPoint.y + " " + (collisionCheck == false));
-            // TODO
-            // Something interferes with the collisions, and pickups only spawn in the top left corner of the map
             if (collisionCheck == false)
             {
                 Instantiate(pickup, new Vector3(spawnPoint.x, spawnPoint.y, 0), Quaternion.identity);
