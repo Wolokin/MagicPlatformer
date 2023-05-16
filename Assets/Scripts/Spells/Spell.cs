@@ -31,6 +31,7 @@ public class Spell : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             collider.gameObject.GetComponentInChildren<HealthBar>().UpdateValue(-damage);
+            collider.gameObject.GetComponent<Animator>().SetTrigger("Hit");
         }
         Destroy(gameObject);
     }

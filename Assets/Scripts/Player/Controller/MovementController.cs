@@ -9,8 +9,13 @@ namespace Controller
         private Input input;
         private Movement movement;
         private PlayerCollision coll;
-        private Vector2 lastInput = Vector2.left;
+        private Vector2 lastLookDirection = Vector2.left;
+
         private SpellSource spellSource;
+
+        private Animator animator;
+        private SpriteRenderer spriteRenderer;
+        private Vector2 dir = Vector2.zero;
 
         [Space]
         [Header("Stats")]
@@ -37,22 +42,44 @@ namespace Controller
             movement = GetComponent<Movement>();
             coll = GetComponent<PlayerCollision>();
             spellSource = GetComponentInChildren<SpellSource>();
+            animator = GetComponent<Animator>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        private Vector2 SnapDirectionTo8Cardinals(Vector2 dir)
+        {
+            dir.Normalize();
+            if (dir.x > 0.25f && dir.y > 0.25f)
+                return new Vector2(1, 1);
+            if (dir.x > 0.25f && dir.y < -0.25f)
+                return new Vector2(1, -1);
+            if (dir.x < -0.25f && dir.y > 0.25f)
+                return new Vector2(-1, 1);
+            if (dir.x < -0.25f && dir.y < -0.25f)
+                return new Vector2(-1, -1);
+            if (dir.x > 0.5f)
+                return Vector2.right;
+            if (dir.x < -0.5f)
+                return Vector2.left;
+            if (dir.y > 0.5f)
+                return Vector2.up;
+            if (dir.y < -0.5f)
+                return Vector2.down;
+            return Vector2.zero;
         }
 
 
         void Update()
         {
-            Vector2 dir = input.move.ReadValue<Vector2>();
+            dir = input.move.ReadValue<Vector2>();
             var dirRaw = input.moveRaw;
-            //print(dir);
 
             if(dir != Vector2.zero)
             {
-                lastInput = dir;
+                lastLookDirection = SnapDirectionTo8Cardinals(dir);
             }
 
             movement.Walk(dir, speed);
-            // anim.SetHorizontalMovement(x, y, rb.velocity.y);
 
             if(input.resetPosition.WasReleasedThisFrame())
             {
@@ -100,7 +127,7 @@ namespace Controller
 
             if (input.cast.WasPressedThisFrame())
             {
-                spellSource.CastSpell(lastInput);
+                spellSource.CastSpell(lastLookDirection);
             }
 
             if (coll.onGround)
@@ -115,6 +142,7 @@ namespace Controller
                 hasTouchedGround = false;
             }
 
+            UpdateAnimationState();
         }
 
         
@@ -175,8 +203,55 @@ namespace Controller
         }
         private void WallJump()
         {
-            Debug.Log("Wall jumped");
             movement.WallJump(jumpForce);
+        }
+
+        private void UpdateAnimationState()
+        {
+            // Running
+            if(dir.x > 0)
+            {
+                animator.SetBool("Running", true);
+                spriteRenderer.flipX = false;
+            }
+            else if (dir.x < 0) { 
+                animator.SetBool("Running", true);
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                animator.SetBool("Running", false);
+            }
+
+            // Jumping
+            if (movement.isJumping)
+            {
+                animator.SetBool("Jumping", true);
+            }
+            else
+            {
+                animator.SetBool("Jumping", false);
+            }
+
+            // Falling
+            if (movement.rb.velocity.y < -3)
+            {
+                animator.SetBool("Falling", true);
+            }
+            else
+            {
+                animator.SetBool("Falling", false);
+            }
+
+            // Wall Grab
+            if (movement.isWallSliding || movement.isWallGrabing)
+            {
+                animator.SetBool("WallGrab", true);
+            }
+            else
+            {
+                animator.SetBool("WallGrab", false);
+            }
         }
     }
 
