@@ -234,7 +234,7 @@ namespace Controller
             }
 
             // Falling
-            if (movement.rb.velocity.y < -3)
+            if (movement.rb.velocity.y < -6)
             {
                 animator.SetBool("Falling", true);
             }
