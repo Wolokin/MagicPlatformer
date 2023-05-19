@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 182416980}
   - component: {fileID: 182416979}
+  - component: {fileID: 182416981}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -154,9 +155,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 0
-  m_MaxPlayerCount: 2
+  m_MaxPlayerCount: 4
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 2
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -166,10 +167,10 @@ MonoBehaviour:
   m_JoinAction:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Join
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 
+      m_Id: 94212e30-524b-439f-9f7a-5033de15be14
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -201,6 +202,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &182416981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182416978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76630611d5bd1404b9516354f7cd940b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefabs:
+  - {fileID: 7402463365067354965, guid: 3892d9702c058fc45b8f5a50cb61758c, type: 3}
+  - {fileID: 2612581576195446490, guid: be4280ae47a49414e8db59b0007ff495, type: 3}
+  - {fileID: 8235611641482039835, guid: 55de8c13e32cf864c80e2f246f755055, type: 3}
+  - {fileID: 6252577006910055275, guid: f9517bdf32618804aa3197f05e91a337, type: 3}
 --- !u!1 &373022956
 GameObject:
   m_ObjectHideFlags: 0
@@ -10990,7 +11008,7 @@ GameObject:
   - component: {fileID: 1121758006}
   - component: {fileID: 1121758005}
   m_Layer: 0
-  m_Name: Settings
+  m_Name: Framerate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
