@@ -46,4 +46,23 @@ public class PlayerListController : MonoBehaviour
             addButtonPanel.SetActive(false);
         }
     }
+
+    public void Update()
+    {
+        // Ugly, but easy
+        for (int i = 0; i < length; i++)
+        {
+            transform.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = "Player " + (i + 1);
+        }
+
+    }
+
+    public void OnRemove()
+    {
+        if (length > 0)
+        {
+            length--;
+            addButtonPanel.SetActive(true);
+        }
+    }
 }
