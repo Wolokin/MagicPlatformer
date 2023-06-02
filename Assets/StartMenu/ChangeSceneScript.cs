@@ -19,7 +19,8 @@ public class ChangeSceneScript : MonoBehaviour
             PlayerSettings.playerSettings[i] = new PlayerSetting
             {
                 skinIndex = panel.GetComponentInChildren<ChangeImage>().GetCurrentIndex(),
-                inputType = panel.GetComponent<ToggleInputScript>().GetCurrentInputType()
+                inputType = panel.GetComponent<ToggleInputScript>().GetCurrentInputType(),
+                playerIndex = i + 1
             };
         }
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);

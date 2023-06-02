@@ -16,8 +16,8 @@ public class BetterJumping : MonoBehaviour
         input = GetComponent<Input>();   
     }
 
-    void Start()
-    {
+
+    void Start()    {
         rb = GetComponent<Rigidbody2D>();
     }
 

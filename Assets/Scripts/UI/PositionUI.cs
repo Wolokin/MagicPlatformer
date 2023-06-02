@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PositionUI : MonoBehaviour
 {
+    public PlayerInput playerInput;
     private double widthPercentage = 0.177;
     private double heightPercentage = 0.111;
     private int referenceWidth = 1920;
@@ -11,7 +13,7 @@ public class PositionUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
+        int playerCount = playerInput.playerIndex + 1;
         RectTransform rt = gameObject.GetComponent<RectTransform>();
         int left = 0, bottom = 0, right = 0, top = 0;
         int widthPadding = (int)(referenceWidth * (1.0 - widthPercentage));
@@ -44,6 +46,6 @@ public class PositionUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

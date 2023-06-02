@@ -9,6 +9,7 @@ public enum InputType
 
 public class PlayerSetting
 {
+    public int playerIndex;
     public int skinIndex;
     public InputType inputType;
 }
