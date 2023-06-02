@@ -7,7 +7,11 @@ using UnityEngine.Tilemaps;
 public class SpawnPickups : MonoBehaviour
 {
     public Tilemap tilemap;
-    public GameObject[] pickups;
+    public GameObject[] commonPickups;
+    public float commonPickupChance;
+    public GameObject[] rarePickups;
+    public float rarePickupChance;
+    public GameObject[] legendaryPickups;
     public float spawnPeriod;
     public int pickupLimit;
     public float spawnCollisionRadius;
@@ -23,8 +27,21 @@ public class SpawnPickups : MonoBehaviour
         {
             return;
         }
-        int pickupIndex = Random.Range(0, pickups.Length);
-        GameObject pickup = pickups[pickupIndex];
+        GameObject[] pickupGroup;
+        float random = Random.Range(0f, 1f);
+        if (random < commonPickupChance)
+        {
+            pickupGroup = commonPickups;
+        } else if (random < commonPickupChance + rarePickupChance) 
+        {
+            pickupGroup = rarePickups;
+        } else
+        { 
+            pickupGroup = legendaryPickups;
+        } 
+
+        int pickupIndex = Random.Range(0, pickupGroup.Length);
+        GameObject pickup = pickupGroup[pickupIndex];
         for (int i = 0; i < 10; i++)
         {
             Vector2 spawnPoint = new Vector2(Random.Range(xMin, xMax), Random.Range(yMin, yMax));

@@ -316,6 +316,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1464119257455741880, guid: 7f7b1638fa0084872940657b29db4b54,
         type: 3}
+      propertyPath: spellSpeedIncrease
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464119257455741880, guid: 7f7b1638fa0084872940657b29db4b54,
+        type: 3}
+      propertyPath: spellDamageIncrease
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464119257455741880, guid: 7f7b1638fa0084872940657b29db4b54,
+        type: 3}
       propertyPath: spellSpawnDistance.x
       value: 0.5
       objectReference: {fileID: 0}
