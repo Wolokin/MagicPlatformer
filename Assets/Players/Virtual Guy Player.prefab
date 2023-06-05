@@ -334,6 +334,11 @@ PrefabInstance:
       propertyPath: spellSpawnDistance.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1464119257455741880, guid: 7f7b1638fa0084872940657b29db4b54,
+        type: 3}
+      propertyPath: maxSpellSpeedIncrease
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3183327781401306792, guid: 7f7b1638fa0084872940657b29db4b54,
         type: 3}
       propertyPath: m_RootOrder

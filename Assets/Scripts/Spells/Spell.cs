@@ -9,6 +9,7 @@ public class Spell : MonoBehaviour
     public float speed;
     public int manaCost;
     public float damage;
+    public float ttl;
 
     public TextMeshPro floatingTextPrefab;
 
@@ -16,15 +17,19 @@ public class Spell : MonoBehaviour
     public string castedBy;
 
     private Vector3 moveDirection;
+    private float deathTime;
     private void Start()
     {
         moveDirection = transform.rotation * Vector3.left;
         moveDirection = Vector3.Normalize(moveDirection);
+        deathTime = Time.time + ttl;
     }
 
     private void Update()
     {
         transform.position += speed * Time.deltaTime * moveDirection;
+        if (Time.time > deathTime)
+            Destroy(gameObject);
     }
 
 

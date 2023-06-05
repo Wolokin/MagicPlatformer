@@ -10,6 +10,8 @@ public class SpellSource : MonoBehaviour
     public float spellSpeedIncrease;
     public float spellDamageIncrease;
 
+    public float maxSpellSpeedIncrease;
+
     private ManaBar manaBar;
     private int manaCost;
 
@@ -26,7 +28,7 @@ public class SpellSource : MonoBehaviour
         Vector3 dir3 = new(dir.x*spellSpawnDistance.x, dir.y*spellSpawnDistance.y, 0);
         Spell spell = Instantiate (spellPrefab, transform.position + dir3, Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, -90)* dir3)).GetComponent<Spell>();
         Physics2D.IgnoreCollision(spell.GetComponent<Collider2D>(), transform.parent.GetComponent<Collider2D>());
-        spell.speed *= spellSpeedIncrease;
+        spell.speed *= Mathf.Min(spellSpeedIncrease, maxSpellSpeedIncrease);
         spell.damage *= spellDamageIncrease;
     }
 }
