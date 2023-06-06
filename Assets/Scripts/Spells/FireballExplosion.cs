@@ -13,7 +13,6 @@ public class FireballExplosion : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        print("EXPLOSION");
         Collider2D collider = collision.collider;
         if (collider.CompareTag("Player"))
         {
