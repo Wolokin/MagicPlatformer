@@ -13,7 +13,7 @@ public class CheckEndConditions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("CheckForEndConditions", 0.0f, checkInterval);
+        InvokeRepeating("CheckForEndConditions", 2.0f, checkInterval);
 
     }
 

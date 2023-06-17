@@ -7,13 +7,14 @@ public class ManualJoin : MonoBehaviour
 {
     public GameObject[] playerPrefabs;
 
-    // Start is called before the first frame update
-    void Start()
+    private void JoinPlayers()
     {
+
         // Create empty parent
         GameObject players = new GameObject("Players");
 
         PlayerInputManager playerInputManager = GetComponent<PlayerInputManager>();
+        playerInputManager.EnableJoining();
         foreach (PlayerSetting playerSetting in PlayerSettings.playerSettings)
         {
             playerInputManager.playerPrefab = playerPrefabs[playerSetting.skinIndex];
@@ -30,11 +31,21 @@ public class ManualJoin : MonoBehaviour
             {
                 playerInput.transform.parent.transform.SetParent(players.transform, true);
             }
+
         }
     }
 
+    // Start is called before the first frame update
+    public void Start()
+    {
+        // wait 1s
+        Invoke(nameof(JoinPlayers), 0.5f);
+
+
+    }
+
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         
     }

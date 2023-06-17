@@ -10,6 +10,22 @@ public class FireballExplosion : MonoBehaviour
 
     public TextMeshPro floatingTextPrefab;
 
+    private void DisableCollider()
+    {
+        GetComponent<Collider2D>().enabled = false;
+    }
+
+    private void EnableCollider()
+    {
+        GetComponent<Collider2D>().enabled = true;
+    }
+
+    public void Start()
+    {
+        DisableCollider();
+        Invoke("EnableCollider", 0.0f);
+    }
+
 
     public void OnCollisionEnter2D(Collision2D collision)
     {

@@ -17,17 +17,10 @@ public class PlayerSettings : MonoBehaviour
 {
     public static PlayerSetting[] playerSettings;
     public static PlayerSettings instance;
-    private void Awake()
+    private void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
     //public void Start()
     //{

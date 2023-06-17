@@ -22,6 +22,7 @@ public class ChangeSceneScript : MonoBehaviour
                 inputType = panel.GetComponent<ToggleInputScript>().GetCurrentInputType(),
                 playerIndex = i + 1
             };
+            print("Player loaded");
         }
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
