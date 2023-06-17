@@ -171,4 +171,7 @@ MonoBehaviour:
   speed: 10
   manaCost: 5
   damage: 10
+  ttl: 10
+  floatingTextPrefab: {fileID: 8984185768086322944, guid: a8530c3d849900f42b918c13ab06f6e9,
+    type: 3}
   castedBy: 

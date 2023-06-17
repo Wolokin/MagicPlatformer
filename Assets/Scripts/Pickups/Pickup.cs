@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 abstract public class Pickup : MonoBehaviour
 {
@@ -9,6 +10,8 @@ abstract public class Pickup : MonoBehaviour
 
     private float floatingHeight;
     private float randomPhase;
+
+    public GameObject floatingTextPrefab;
 
     public abstract void OnPickup(Collider2D other);
 
@@ -40,5 +43,14 @@ abstract public class Pickup : MonoBehaviour
 
         // Make the pickup float up and down
         transform.position = new Vector3(transform.position.x, transform.position.y + Mathf.Sin(randomPhase + Time.time * floatingSpeedMultiplier) * floatingHeight, transform.position.z);
+    }
+
+    public TextMeshPro FloatingText(string text)
+    {
+        // Create a floating disappearing text
+        GameObject floatingText = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform.parent.parent);
+        TextMeshPro tmp = floatingText.GetComponent<TextMeshPro>();
+        tmp.text = text;
+        return tmp;
     }
 }

@@ -35,6 +35,10 @@ namespace Controller
         public int jumped = 0;
         private bool hasTouchedGround = false;
 
+        [Space]
+        [Header("Settings")]
+        public float deadzone;
+
 
         private void OnEnable()
         {
@@ -51,11 +55,11 @@ namespace Controller
             dir.Normalize();
             if (dir.x > 0.25f && dir.y > 0.25f)
                 return new Vector2(1, 1);
-            if (dir.x > 0.25f && dir.y < -0.25f)
+            if (dir.x > 0.25f && dir.y < -0.5f)
                 return new Vector2(1, -1);
             if (dir.x < -0.25f && dir.y > 0.25f)
                 return new Vector2(-1, 1);
-            if (dir.x < -0.25f && dir.y < -0.25f)
+            if (dir.x < -0.25f && dir.y < -0.5f)
                 return new Vector2(-1, -1);
             if (dir.x > 0.5f)
                 return Vector2.right;
@@ -74,7 +78,7 @@ namespace Controller
             dir = input.move.ReadValue<Vector2>();
             var dirRaw = input.moveRaw;
 
-            if(dir != Vector2.zero)
+            if(Math.Abs(dir.x) + Math.Abs(dir.y) > deadzone)
             {
                 lastLookDirection = SnapDirectionTo8Cardinals(dir);
             }
@@ -212,11 +216,17 @@ namespace Controller
             if(dir.x > 0)
             {
                 animator.SetBool("Running", true);
-                spriteRenderer.flipX = false;
+                if (lastLookDirection.x > 0)
+                {
+                    spriteRenderer.flipX = false;
+                }
             }
             else if (dir.x < 0) { 
                 animator.SetBool("Running", true);
-                spriteRenderer.flipX = true;
+                if (lastLookDirection.x < 0)
+                {
+                    spriteRenderer.flipX = true;
+                }
             }
             else
             {
