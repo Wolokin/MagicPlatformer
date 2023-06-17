@@ -35,7 +35,7 @@ public class FireballExplosion : MonoBehaviour
             collider.gameObject.GetComponentInChildren<HealthBar>().UpdateValue(-damage);
             TextMeshPro floatingText = Instantiate(floatingTextPrefab, collider.transform.position, Quaternion.identity);
             floatingText.text = "-" + damage;
-            floatingText.color = Color.red;
+            floatingText.color = new Color(1.0f, 0.5f, 0.0f);
             collider.gameObject.GetComponent<Animator>().SetTrigger("Hit");
         }
     }
