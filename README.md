@@ -15,7 +15,7 @@ release, or build the game yourself in Unity.
 To download the latest release, go to the [releases](/releases/latest) page and
 choose the appropriate file for your platform.
 
-**Note:** The releases have only been tested on Windows 10.
+**Note:** The releases have been tested only on Windows 10 and Linux (Fedora 38).
 
 ### Opening in Unity
 
