@@ -15,6 +15,8 @@ release, or build the game yourself in Unity.
 To download the latest release, go to the [releases](/releases/latest) page and
 choose the appropriate file for your platform.
 
+**Note:** The releases have only been tested on Windows 10.
+
 ### Opening in Unity
 
 To open the project in Unity, you need to have the Unity editor installed.
@@ -32,12 +34,13 @@ Then open the project in Unity by selecting the `MagicPlatformer` folder.
 
 After running the game, you will be greeted with the start menu. From here you
 can select the number of players (2-4), the skin of each player and the input
-they will use. Note: for the player to spawn, the input needs to be present,
+they will use.<br>
+**Note**: for the player to spawn, the input needs to be present,
 i.e. if you select a controller as an input, but there is no controller
 connected, the player will not spawn.
 
 When you're ready with your selections, proceed to select 'Map 1' at the bottom
-to start fighting.
+to start playing.
 
 ### Movement & Controls
 
@@ -53,10 +56,16 @@ The following table describes the control schemes for both keyboard and controll
 
 ### Pick-ups
 
+There are currently six pick-ups in total in the game. Four of them grant
+different bonuses, like health restoration and speed boost, and two of them are
+wands, that give you access to new spells.
+
+Everything is summarized in the following table:
+
 
 | Icon                                    | Action                  |
 |-----------------------------------------|-------------------------|
-| ![](/Assets/RPG\ Fantasy\ Items/Sprites/HealthPotion.png) | Restores 1 health point |
+| ![]("./Assets/RPG\ Fantasy\ Items/Sprites/HealthPotion.png") | Restores 1 health point |
 
 
 
