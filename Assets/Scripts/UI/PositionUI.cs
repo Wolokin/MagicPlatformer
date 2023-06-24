@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 public class PositionUI : MonoBehaviour
 {
     public PlayerInput playerInput;
-    private double widthPercentage = 0.177;
-    private double heightPercentage = 0.111;
+    private double widthPercentage = 0.223953;
+    private double heightPercentage = 0.111111;
     private int referenceWidth = 1920;
     private int referenceHeight = 1080;
     // Start is called before the first frame update

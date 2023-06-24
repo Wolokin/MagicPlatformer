@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro.EditorUtilities;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ChangeSceneScript : MonoBehaviour
@@ -22,6 +18,7 @@ public class ChangeSceneScript : MonoBehaviour
                 inputType = panel.GetComponent<ToggleInputScript>().GetCurrentInputType(),
                 playerIndex = i + 1
             };
+            print("Player loaded");
         }
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }

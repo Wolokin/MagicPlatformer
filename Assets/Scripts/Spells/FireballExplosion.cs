@@ -10,17 +10,32 @@ public class FireballExplosion : MonoBehaviour
 
     public TextMeshPro floatingTextPrefab;
 
+    private void DisableCollider()
+    {
+        GetComponent<Collider2D>().enabled = false;
+    }
+
+    private void EnableCollider()
+    {
+        GetComponent<Collider2D>().enabled = true;
+    }
+
+    public void Start()
+    {
+        DisableCollider();
+        Invoke("EnableCollider", 0.0f);
+    }
+
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        print("EXPLOSION");
         Collider2D collider = collision.collider;
         if (collider.CompareTag("Player"))
         {
             collider.gameObject.GetComponentInChildren<HealthBar>().UpdateValue(-damage);
             TextMeshPro floatingText = Instantiate(floatingTextPrefab, collider.transform.position, Quaternion.identity);
             floatingText.text = "-" + damage;
-            floatingText.color = Color.red;
+            floatingText.color = new Color(1.0f, 0.5f, 0.0f);
             collider.gameObject.GetComponent<Animator>().SetTrigger("Hit");
         }
     }
