@@ -60,17 +60,29 @@ There are currently six pick-ups in total in the game. Four of them grant
 different bonuses, like health restoration and speed boost, and two of them are
 wands, that give you access to new spells.
 
+Pick-ups are spawned very often as long as there is less than 10 of them on the map.
+
 Everything is summarized in the following table:
 
 
-| Icon                                    | Action                  |
-|-----------------------------------------|-------------------------|
-| ![]("./Assets/RPG\ Fantasy\ Items/Sprites/HealthPotion.png") | Restores 1 health point |
-
-
-
-
-
+| Icon                            | Action                                                            |
+|---------------------------------|-------------------------------------------------------------------|
+| ![](./Images/health-potion.png) | Restores 25 health point                                          |
+| ![](./Images/mana-potion.png)   | Restores 25 mana point                                            |
+| ![](./Images/speed-boost.png)   | Increases the speed of the spell projectile by 10%                |
+| ![](./Images/dmg-boost.png)     | Increases spell's damage by 15%                                   |
+| ![](./Images/fire-wand.png)     | Replaces the current spell with an exploding fireball             |
+| ![](./Images/eternal-wand.png)  | Replaces the current spell with slow but high-damage damage spell |
 
 
 ## Inspirations
+
+Movement in our game is inspired by [Celeste](https://store.steampowered.com/app/504230/Celeste/).
+
+## Used Assets
+
+All assets used in this project were acquired from free sources. Most notably:
+ - [Pixel Adventure 1](https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360)
+ - [RPG Fantasy Items](https://assetstore.unity.com/packages/2d/rpg-fantasy-items-193591)
+ - [Free 2D Mega Pack](https://assetstore.unity.com/packages/2d/free-2d-mega-pack-177430)
+ - [Thaleah Pixel Font](https://assetstore.unity.com/packages/2d/fonts/free-pixel-font-thaleah-140059)
