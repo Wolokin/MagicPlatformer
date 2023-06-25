@@ -32,7 +32,7 @@ Then open the project in Unity by selecting the `MagicPlatformer` folder.
 
 ### Start menu
 
-After running the game, you will be greeted with the start menu. From here you
+After running the game, you will be greeted with the start menu. From here, you
 can select the number of players (2-4), the skin of each player and the input
 they will use.<br>
 **Note**: for the player to spawn, the input needs to be present,
