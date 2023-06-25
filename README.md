@@ -42,6 +42,10 @@ connected, the player will not spawn.
 When you're ready with your selections, proceed to select 'Map 1' at the bottom
 to start playing.
 
+### Basic Information
+
+Each player starts the game with 100 health and mana points. Both health and mana are capped at 100 points. On the other hand, each player's damage is uncapped and can be increased using special items (see sub-section *Pick-ups*). The initial speed of spells is set to 3.0, which can be increased analogically to damage.
+
 ### Movement & Controls
 
 The following table describes the control schemes for both keyboard and controller inputs:
