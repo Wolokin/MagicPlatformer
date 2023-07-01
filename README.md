@@ -12,7 +12,7 @@ You have two options to install the game. You can either download the latest
 release, or build the game yourself in Unity.
 
 ### Downloading the latest release
-To download the latest release, go to the [releases](/releases/latest) page and
+To download the latest release, go to the [releases](https://github.com/Wolokin/MagicPlatformer/releases/tag/major) page and
 choose the appropriate file for your platform.
 
 **Note:** The releases have been tested only on Windows 10 and Linux (Fedora 38).
